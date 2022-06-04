@@ -55,7 +55,7 @@ public class infoScreen extends JPanel implements ActionListener{
             x = 0;
             y = 0;
             width = 1000;
-            height = 1000;
+            height = 10;
         }
         else if(a == 2)
         {
