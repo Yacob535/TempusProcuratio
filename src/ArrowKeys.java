@@ -1,8 +1,8 @@
 /**
  *David Shim
- * Version #1
- * May 27 2020
- * 5 hours
+ * Version #2
+ * June 3 2022
+ * 7 hours
  */
 
 import javax.swing.*;
@@ -15,7 +15,7 @@ import java.awt.event.KeyListener;
 public class ArrowKeys implements ActionListener {
 
     /**
-     * This method uses JFrames to create a model of our actual game frame and displays the arrow keys being used
+     * This method uses JFrames to create a model of our actual game frame, displays the arrow keys being used, and has interactive objects
      *
      */
     public ArrowKeys() {
