@@ -12,7 +12,7 @@ import java.awt.event.KeyListener;
 /**
  * This class uses determines the number of times an arrow key is used
  */
-public class ArrowKeys {
+public class ArrowKeys implements ActionListener {
 
     /**
      * This method uses JFrames to create a model of our actual game frame and displays the arrow keys being used
@@ -24,7 +24,8 @@ public class ArrowKeys {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1200, 1050);
         frame.setFocusable(true);
-
+        
+        JButton object1 = new plainButton(new ImageIcon("distraction1"),0,0,950,650);
         JLabel bg1 = new background("roomPanel1.jpg",0,0,1000,1000);
         JLabel bg2 = new background("roomPanel2.png",0,0,1000,1000);
         JLabel bg3 = new background("roomPanel3.png",0,0,1000,1000);
@@ -131,5 +132,11 @@ public class ArrowKeys {
 
     public static void main(String[] args) {
         new ArrowKeys();
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == object1){
+            System.out.println("hi");
+        }
     }
 }
