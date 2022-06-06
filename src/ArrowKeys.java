@@ -32,9 +32,9 @@ public class ArrowKeys implements ActionListener {
         JLabel bg2 = new background("roomPanel2.png",0,0,950,650);
         JLabel bg3 = new background("roomPanel3.png",0,0,950,650);
         JLabel bg4 = new background("roomPanel4.png",0,0,950,650);
-        JButton object1 = new plainButton(new ImageIcon("distraction1.png"),0,0,605,336);
-        JButton object2 = new plainButton(new ImageIcon("distraction2.png"),0,0,322,340);
-        JButton object3 = new plainButton(new ImageIcon("distraction3.png"),0,0,531,299);
+        JButton object1 = new plainButton(new ImageIcon("distraction1.png"),3,315,605,336);
+        JButton object2 = new plainButton(new ImageIcon("distraction2.png"),618,320,322,340);
+        JButton object3 = new plainButton(new ImageIcon("distraction3.png"),20,20,531,299);
         JButton object4 = new plainButton(new ImageIcon("monitor.png"),0,0,300,242);
         JButton object5 = new plainButton(new ImageIcon("distraction5.png"),0,0,219,240);
         JButton object6 = new plainButton(new ImageIcon("distraction6.png"),0,0,380,321);
@@ -66,7 +66,7 @@ public class ArrowKeys implements ActionListener {
         object5.setVisible(false);
         object6.setVisible(false);
         object7.setVisible(false);
-        bg1.setVisible(true);
+        bg1.setVisible(false);
         bg2.setVisible(false);
         bg3.setVisible(false);
         bg4.setVisible(false);
