@@ -13,10 +13,11 @@ import java.util.*;
 /**
  * This class uses determines the number of times an arrow key is used
  */
-public class ArrowKeys implements ActionListener {
+public class ArrowKeys /*implements ActionListener*/ {
     int screenNum = 1;
-    JButton object1,object2,object3,object4,object5,object6,object7,object8,object9,object10;
+    //JButton object1,object2,object3,object4,object5,object6,object7,object8,object9,object10;
     int objectInteract = 0;
+    int strikes = 0;
     /**
      * This method uses JFrames to create a model of our actual game frame and displays the arrow keys being used
      */
@@ -66,10 +67,6 @@ public class ArrowKeys implements ActionListener {
         panel.add(object8);
         panel.add(object9);
         panel.add(object10);
-        panel.add(bg1);
-        panel.add(bg2);
-        panel.add(bg3);
-        panel.add(bg4);
         panel.add(bMessage1);
         panel.add(bMessage2);
         panel.add(bMessage3);
@@ -80,6 +77,10 @@ public class ArrowKeys implements ActionListener {
         panel.add(message2);
         panel.add(message3);
         panel.add(message4);
+        panel.add(bg1);
+        panel.add(bg2);
+        panel.add(bg3);
+        panel.add(bg4);
 
         object1.setVisible(true);
         object2.setVisible(true);
@@ -106,7 +107,66 @@ public class ArrowKeys implements ActionListener {
         message3.setVisible(false);
         message4.setVisible(false);
 
+
         frame.addKeyListener(new KeyListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == object1){
+                    object1.setVisible(false);
+                    message4.setVisible(true);
+                    objectInteract++;
+                }
+                else if(e.getSource() == object2){
+                    object2.setVisible(false);
+                    message3.setVisible(true);
+                    objectInteract++;
+                }
+                else if(e.getSource() == object3){
+                    object3.setVisible(false);
+                    bMessage2.setVisible(true);
+                    objectInteract++;
+                    strikes++;
+                }
+                else if(e.getSource() == object4){
+                    object4.setVisible(false);
+                    bMessage1.setVisible(true);
+                    objectInteract++;
+                    strikes++;
+                }
+                else if(e.getSource() == object5){
+                    object5.setVisible(false);
+                    message1.setVisible(true);
+                    objectInteract++;
+                }
+                else if(e.getSource() == object6){
+                    object6.setVisible(false);
+                    message2.setVisible(true);
+                    objectInteract++;
+                }
+                else if(e.getSource() == object7){
+                    object7.setVisible(false);
+                    bMessage3.setVisible(true);
+                    objectInteract++;
+                    strikes++;
+                }
+                else if(e.getSource() == object8){
+                    object8.setVisible(false);
+                    bMessage4.setVisible(true);
+                    objectInteract++;
+                    strikes++;
+                }
+                else if(e.getSource() == object9){
+                    object9.setVisible(false);
+                    bMessage6.setVisible(true);
+                    objectInteract++;
+                    strikes++;
+                }
+                else if(e.getSource() == object10){
+                    object10.setVisible(false);
+                    bMessage5.setVisible(true);
+                    objectInteract++;
+                    strikes++;
+                }
+            }
             @Override
             public void keyReleased(KeyEvent e) {
 
@@ -219,48 +279,4 @@ public class ArrowKeys implements ActionListener {
         new ArrowKeys();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == object1){
-            object1.setVisible(false);
-            //message1.setVisible(true);
-            objectInteract++;
-        }
-        else if(e.getSource() == object2){
-            object2.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object3){
-            object3.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object4){
-            object4.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object5){
-            object5.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object6){
-            object6.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object7){
-            object7.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object8){
-            object7.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object9){
-            object7.setVisible(false);
-            objectInteract++;
-        }
-        else if(e.getSource() == object10){
-            object7.setVisible(false);
-            objectInteract++;
-        }
-    }
 }
