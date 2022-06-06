@@ -32,13 +32,13 @@ public class ArrowKeys implements ActionListener {
         JLabel bg2 = new background("roomPanel2.png",0,0,950,650);
         JLabel bg3 = new background("roomPanel3.png",0,0,950,650);
         JLabel bg4 = new background("roomPanel4.png",0,0,950,650);
-        JButton object1 = new plainButton(new ImageIcon("distraction1.png"),3,315,605,336);
+        JButton object1 = new plainButton(new ImageIcon("distraction1.png"),0,315,608,3269);
         JButton object2 = new plainButton(new ImageIcon("distraction2.png"),618,320,322,340);
-        JButton object3 = new plainButton(new ImageIcon("distraction3.png"),20,20,531,299);
-        JButton object4 = new plainButton(new ImageIcon("monitor.png"),0,0,300,242);
-        JButton object5 = new plainButton(new ImageIcon("distraction5.png"),0,0,219,240);
-        JButton object6 = new plainButton(new ImageIcon("distraction6.png"),0,0,380,321);
-        JButton object7 = new plainButton(new ImageIcon("distraction7.png"),0,0,611,441);
+        JButton object3 = new plainButton(new ImageIcon("distraction3.png"),20,0,534,270);
+        JButton object4 = new plainButton(new ImageIcon("distraction4.png"),530,290,380,323);
+        JButton object5 = new plainButton(new ImageIcon("distraction5.png"),700,40,219,240);
+        JButton object6 = new plainButton(new ImageIcon("distraction6.png"),60,290,380,321);
+        JButton object7 = new plainButton(new ImageIcon("distraction7.png"),340,160,611,441);
 
         JPanel panel = new JPanel();
         JLabel left = new JLabel();
@@ -82,12 +82,19 @@ public class ArrowKeys implements ActionListener {
                 int keyCode = e.getKeyCode();
                 if (screenNum == 1) {
                     if (keyCode == 39){
+                        object1.setVisible(false);
+                        object2.setVisible(false);
+                        object3.setVisible(false);
                         bg1.setVisible(false);
                         bg2.setVisible(true);
                         screenNum = 2;
                     }
                     if (keyCode == 37){
+                        object1.setVisible(false);
+                        object2.setVisible(false);
+                        object3.setVisible(false);
                         bg1.setVisible(false);
+                        object7.setVisible(true);
                         bg4.setVisible(true);
                         screenNum = 4;
                     }
@@ -95,22 +102,35 @@ public class ArrowKeys implements ActionListener {
                 else if (screenNum == 2) {
                     if (keyCode == 39){
                         bg2.setVisible(false);
+                        object4.setVisible(true);
+                        object5.setVisible(true);
+                        object6.setVisible(true);
                         bg3.setVisible(true);
                         screenNum = 3;
                     }
                     if (keyCode == 37){
                         bg2.setVisible(false);
+                        object1.setVisible(true);
+                        object2.setVisible(true);
+                        object3.setVisible(true);
                         bg1.setVisible(true);
                         screenNum = 1;
                     }
                 }
                 else if (screenNum == 3) {
                     if (keyCode == 39){
+                        object4.setVisible(false);
+                        object5.setVisible(false);
+                        object6.setVisible(false);
                         bg3.setVisible(false);
+                        object7.setVisible(true);
                         bg4.setVisible(true);
                         screenNum = 4;
                     }
                     if (keyCode == 37){
+                        object4.setVisible(false);
+                        object5.setVisible(false);
+                        object6.setVisible(false);
                         bg3.setVisible(false);
                         bg2.setVisible(true);
                         screenNum = 2;
@@ -118,12 +138,20 @@ public class ArrowKeys implements ActionListener {
                 }
                 else if (screenNum == 4) {
                     if (keyCode == 39){
+                        object7.setVisible(false);
                         bg4.setVisible(false);
+                        object1.setVisible(true);
+                        object2.setVisible(true);
+                        object3.setVisible(true);
                         bg1.setVisible(true);
                         screenNum = 1;
                     }
                     if (keyCode == 37){
+                        object7.setVisible(false);
                         bg4.setVisible(false);
+                        object4.setVisible(true);
+                        object5.setVisible(true);
+                        object6.setVisible(true);
                         bg3.setVisible(true);
                         screenNum = 3;
                     }
