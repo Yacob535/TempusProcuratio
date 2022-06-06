@@ -41,7 +41,7 @@ public class HighScore extends JPanel implements ActionListener {
         backButton.addActionListener(this);
         backButton.setBounds(25,25,100,29);
 
-        Font textSize = new Font("Arial",Font.PLAIN,30);
+        Font textSize = new Font("Arial",Font.PLAIN,120);
         this.setFont(textSize);
         try (BufferedReader br = new BufferedReader(new FileReader("highscore.txt"))) {
             String line;
@@ -65,11 +65,11 @@ public class HighScore extends JPanel implements ActionListener {
             score9 = new JLabel(line);
             line = br.readLine();
             score10 = new JLabel(line);
-            score1.setBounds(130,80,2000,100);
-            score2.setBounds(130,90,2000,100);
-            score3.setBounds(130,100,2000,100);
-            score4.setBounds(130,110,2000,100);
-            score5.setBounds(130,120,2000,100);
+            score1.setBounds(45,140,2000,100);
+            score2.setBounds(45,210,2000,100);
+            score3.setBounds(45,290,2000,100);
+            score4.setBounds(45,370,2000,100);
+            score5.setBounds(45,450,2000,100);
             score6.setBounds(600,130,2000,100);
             score7.setBounds(600,140,2000,100);
             score8.setBounds(600,150,2000,100);
@@ -80,11 +80,11 @@ public class HighScore extends JPanel implements ActionListener {
             this.add(score3);
             this.add(score4);
             this.add(score5);
-            this.add(score6);
-            this.add(score7);
-            this.add(score8);
-            this.add(score9);
-            this.add(score10);
+           // this.add(score6);
+           // this.add(score7);
+           // this.add(score8);
+          //  this.add(score9);
+           // this.add(score10);
 
         }catch(Exception e){
             System.out.println("HI");
