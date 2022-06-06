@@ -41,8 +41,6 @@ public class ArrowKeys implements ActionListener {
         JButton object7 = new plainButton(new ImageIcon("distraction7.png"),340,160,611,441);
 
         JPanel panel = new JPanel();
-        JLabel left = new JLabel();
-        JLabel right = new JLabel();
 
         panel.setLayout(null);
         panel.add(object1);
@@ -52,8 +50,6 @@ public class ArrowKeys implements ActionListener {
         panel.add(object5);
         panel.add(object6);
         panel.add(object7);
-        panel.add(left);
-        panel.add(right);
         panel.add(bg1);
         panel.add(bg2);
         panel.add(bg3);
@@ -73,7 +69,9 @@ public class ArrowKeys implements ActionListener {
 
         frame.addKeyListener(new KeyListener() {
             @Override
-            public void keyReleased(KeyEvent e) {}
+            public void keyReleased(KeyEvent e) {
+
+            }
             @Override
             public void keyTyped(KeyEvent e) {}
             @Override
