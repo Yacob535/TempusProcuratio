@@ -6,140 +6,171 @@
  */
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 
 /**
  * This class uses determines the number of times an arrow key is used
  */
 public class ArrowKeys implements ActionListener {
-
+    int screenNum = 1;
+    JButton object1,object2,object3,object4,object5,object6,object7;
+    int objectInteract = 0;
     /**
-     * This method uses JFrames to create a model of our actual game frame, displays the arrow keys being used, and has interactive objects
-     *
+     * This method uses JFrames to create a model of our actual game frame and displays the arrow keys being used
      */
-    JButton object1;
     public ArrowKeys() {
+
         JFrame frame = new JFrame();
+        frame.setSize(950, 650);
+        frame.setFocusable(true);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1200, 1050);
-        frame.setFocusable(true);
-        
-        object1 = new plainButton(new ImageIcon("distraction1"),0,0,950,650);
-        JLabel bg1 = new background("roomPanel1.jpg",0,0,1000,1000);
-        JLabel bg2 = new background("roomPanel2.png",0,0,1000,1000);
-        JLabel bg3 = new background("roomPanel3.png",0,0,1000,1000);
-        JLabel bg4 = new background("roomPanel4.png",0,0,1000,1000);
+
+        JLabel bg1 = new background("roomPanel1.png",0,0,950,650);
+        JLabel bg2 = new background("roomPanel2.png",0,0,950,650);
+        JLabel bg3 = new background("roomPanel3.png",0,0,950,650);
+        JLabel bg4 = new background("roomPanel4.png",0,0,950,650);
+        JButton object1 = new plainButton(new ImageIcon("distraction1.png"),0,0,605,336);
+        JButton object2 = new plainButton(new ImageIcon("distraction2.png"),0,0,322,340);
+        JButton object3 = new plainButton(new ImageIcon("distraction3.png"),0,0,531,299);
+        JButton object4 = new plainButton(new ImageIcon("monitor.png"),0,0,300,242);
+        JButton object5 = new plainButton(new ImageIcon("distraction5.png"),0,0,219,240);
+        JButton object6 = new plainButton(new ImageIcon("distraction6.png"),0,0,380,321);
+        JButton object7 = new plainButton(new ImageIcon("distraction7.png"),0,0,611,441);
+
         JPanel panel = new JPanel();
         JLabel left = new JLabel();
         JLabel right = new JLabel();
 
+        panel.setLayout(null);
+        panel.add(object1);
+        panel.add(object2);
+        panel.add(object3);
+        panel.add(object4);
+        panel.add(object5);
+        panel.add(object6);
+        panel.add(object7);
         panel.add(left);
         panel.add(right);
         panel.add(bg1);
         panel.add(bg2);
         panel.add(bg3);
         panel.add(bg4);
-        bg1.setVisible(false);
+
+        object1.setVisible(true);
+        object2.setVisible(true);
+        object3.setVisible(true);
+        object4.setVisible(false);
+        object5.setVisible(false);
+        object6.setVisible(false);
+        object7.setVisible(false);
+        bg1.setVisible(true);
         bg2.setVisible(false);
         bg3.setVisible(false);
         bg4.setVisible(false);
+
         frame.addKeyListener(new KeyListener() {
             @Override
-            public void keyTyped(KeyEvent e) {
-            }
+            public void keyReleased(KeyEvent e) {}
+            @Override
+            public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                int screenNum = 3;
+
                 int keyCode = e.getKeyCode();
-                //int x = 0;
-                    if (screenNum == 1) {
-                        switch (keyCode) {
-                            case KeyEvent.VK_RIGHT:
-                                bg1.setVisible(false);
-                                System.out.println(1);
-                                bg2.setVisible(true);
-                                screenNum = 2;
-                                break;
-                            case KeyEvent.VK_LEFT:
-                                bg1.setVisible(false);
-                                bg4.setVisible(true);
-                                screenNum = 4;
-                                System.out.println(2);
-                                break;
-                        }
+                if (screenNum == 1) {
+                    if (keyCode == 39){
+                        bg1.setVisible(false);
+                        bg2.setVisible(true);
+                        screenNum = 2;
                     }
-                    if (screenNum == 2) {
-                        switch (keyCode) {
-                            case KeyEvent.VK_RIGHT:
-                                bg2.setVisible(false);
-                                bg3.setVisible(true);
-                                System.out.println(3);
-                                screenNum = 3;
-                                break;
-
-                            case KeyEvent.VK_LEFT:
-                                bg2.setVisible(false);
-                                bg1.setVisible(true);
-                                screenNum = 1;
-                                System.out.println(4);
-
-                                break;
-                        }
+                    if (keyCode == 37){
+                        bg1.setVisible(false);
+                        bg4.setVisible(true);
+                        screenNum = 4;
                     }
-                    if (screenNum == 3) {
-                        switch (keyCode) {
-                            case KeyEvent.VK_RIGHT:
-                                bg3.setVisible(false);
-                                bg4.setVisible(true);
-                                screenNum = 4;
-                                System.out.println(5);
-                                break;
-
-                            case KeyEvent.VK_LEFT:
-                                bg3.setVisible(false);
-                                bg2.setVisible(true);
-                                screenNum = 2;
-                                System.out.println(6);
-                                break;
-                        }
+                }
+                else if (screenNum == 2) {
+                    if (keyCode == 39){
+                        bg2.setVisible(false);
+                        bg3.setVisible(true);
+                        screenNum = 3;
                     }
-                    if (screenNum == 4) {
-                        switch (keyCode) {
-                            case KeyEvent.VK_RIGHT:
-                                bg4.setVisible(false);
-                                bg1.setVisible(true);
-                                //screenNum = 1;
-                                System.out.println(7);
-                                break;
-
-                            case KeyEvent.VK_LEFT:
-                                bg4.setVisible(false);
-                                bg3.setVisible(true);
-                                screenNum = 3;
-                                System.out.println(8);
-                                break;
-                        }
+                    if (keyCode == 37){
+                        bg2.setVisible(false);
+                        bg1.setVisible(true);
+                        screenNum = 1;
                     }
+                }
+                else if (screenNum == 3) {
+                    if (keyCode == 39){
+                        bg3.setVisible(false);
+                        bg4.setVisible(true);
+                        screenNum = 4;
+                    }
+                    if (keyCode == 37){
+                        bg3.setVisible(false);
+                        bg2.setVisible(true);
+                        screenNum = 2;
+                    }
+                }
+                else if (screenNum == 4) {
+                    if (keyCode == 39){
+                        bg4.setVisible(false);
+                        bg1.setVisible(true);
+                        screenNum = 1;
+                    }
+                    if (keyCode == 37){
+                        bg4.setVisible(false);
+                        bg3.setVisible(true);
+                        screenNum = 3;
+                    }
+                }
+                else if(objectInteract == 7){
+                    return;
+                }
             }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                                 }
         });
-                frame.add(panel);
+
+
+        frame.add(panel);
     }
 
     public static void main(String[] args) {
         new ArrowKeys();
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == object1){
-            System.out.println("hi");
+            object1.setVisible(false);
+            objectInteract++;
+        }
+        else if(e.getSource() == object2){
+            object2.setVisible(false);
+            objectInteract++;
+        }
+        else if(e.getSource() == object3){
+            object3.setVisible(false);
+            objectInteract++;
+        }
+        else if(e.getSource() == object4){
+            object4.setVisible(false);
+            objectInteract++;
+        }
+        else if(e.getSource() == object5){
+            object5.setVisible(false);
+            objectInteract++;
+        }
+        else if(e.getSource() == object6){
+            object6.setVisible(false);
+            objectInteract++;
+        }
+        else if(e.getSource() == object7){
+            object7.setVisible(false);
+            objectInteract++;
         }
     }
 }
