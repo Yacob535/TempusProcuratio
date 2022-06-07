@@ -30,9 +30,9 @@ public class transitionToPanic extends JPanel implements ActionListener {
     {
         f = q;
         this.setLayout(null);
-        but = new JLabel("Great Job! Now let's test your knowledge of distractions...");
-        but.setFont(new Font("Helvetica",Font.PLAIN,18));
-        but.setBounds(100,100,1000,100);
+        but = new JLabel("<html> We hope you learned a lot about how certain objects distract you and lead you down a road of procrastination because we have some news: you have been tasked with completing a project in an impossibly short amount of time. Being responsible, you decide to take a few minutes to clear out all distractions from the room to prevent any chance of procrastination and distraction. If you click something which is not a distraction, this will be a huge waste of time and a strike against you, (X) strikes and you’ll have to restart. Don’t panic, and good luck! <html>");
+        but.setFont(new Font("Helvetica",Font.PLAIN,25));
+        but.setBounds(10,30,950,600);
         backButton = new plainButton(new ImageIcon("backButton.png"),25,25,100,29);
         backButton.addActionListener(this);
         this.add(backButton);
