@@ -63,6 +63,18 @@ public class titleScreen extends JPanel implements ActionListener {
         else if(e.getSource() == hiscore)
         {
             this.setVisible(false);
+            highscores scores = new highscores();
+            scores.addHighscore(0, "Dev1");
+            scores.addHighscore(0, "Dev2");
+            scores.addHighscore(0, "Dev3");
+            scores.addHighscore(0, "Dev4");
+            scores.addHighscore(0, "Dev5");
+            scores.addHighscore(0, "Dev6");
+            scores.addHighscore(0, "Dev7");
+            scores.addHighscore(0, "Dev8");
+            scores.addHighscore(0, "Dev9");
+            scores.addHighscore(0, "Dev10");
+            scores.updateHighscores();
             HighScore high = new HighScore(f);
             f.add(high);
             high.setVisible(true);
@@ -70,7 +82,7 @@ public class titleScreen extends JPanel implements ActionListener {
         else if(e.getSource() == deficiencies)
         {
             this.setVisible(false);
-            deficienciesRoom def = new deficienciesRoom(f,counter);
+            infoScreenToDef def = new infoScreenToDef(f);
             f.add(def);
             def.setVisible(true);
         }

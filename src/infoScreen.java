@@ -35,9 +35,9 @@ public class infoScreen extends JPanel implements ActionListener{
         y = contains;
         counter = t;
         screen = z;
-        backButton = new plainButton(new ImageIcon("backButton.png"),25,25,100,29);
+        backButton = new plainButton(new ImageIcon("backButton.png"),125,50,100,29);
         bg = new background("deficienciesRoom.png",0,0,950,650);
-        textBox = new background("textBox.PNG",-20,0,950,650);
+        textBox = new background("textBox.PNG",-20,-10,950,650);
         giveScreen(screen);
         backButton.addActionListener(this);
         this.add(backButton);
