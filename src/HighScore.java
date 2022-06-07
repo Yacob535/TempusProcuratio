@@ -19,7 +19,7 @@ import java.io.FileReader;
  */
 public class HighScore extends JPanel implements ActionListener {
 
-    JLabel bg2,logo,table1, table2,name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, score1,score2,score3,score4,score5,score6,score7,score8,score9,score10;
+    JLabel bg2,logo,table1, table2, header1, header2, header3, header4, name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, score1,score2,score3,score4,score5,score6,score7,score8,score9,score10;
     JButton backButton;
     JFrame f;
 
@@ -40,7 +40,6 @@ public class HighScore extends JPanel implements ActionListener {
         backButton = new JButton(b);
         backButton.addActionListener(this);
         backButton.setBounds(25,25,100,29);
-
         Font textSize = new Font("Arial",Font.PLAIN,25);
         this.setFont(textSize);
         try (BufferedReader br = new BufferedReader(new FileReader("highscore.txt"))) {
@@ -96,6 +95,7 @@ public class HighScore extends JPanel implements ActionListener {
             score10 = new JLabel(String.valueOf(Integer.parseInt(line.substring(line.lastIndexOf(" ")+1))));
             score10.setFont(textSize);
 
+
             name1.setBounds(45,140,2000,100);
             score1.setBounds(255,140,2000,100);
             name2.setBounds(45,210,2000,100);
@@ -140,6 +140,22 @@ public class HighScore extends JPanel implements ActionListener {
         }catch(Exception e){
             System.out.println("HI");
         }
+        header1 = new JLabel("Name");
+        header1.setFont(textSize);
+        header1.setBounds(120,77,500,100);
+        header2 = new JLabel("Score");
+        header2.setFont(textSize);
+        header2.setBounds(300,77,500,100);
+        header3 = new JLabel("Name");
+        header3.setFont(textSize);
+        header3.setBounds(565,77,500,100);
+        header4 = new JLabel("Name");
+        header4.setFont(textSize);
+        header4.setBounds(745,77,500,100);
+        this.add(header1);
+        this.add(header2);
+        this.add(header3);
+        this.add(header4);
         this.add(backButton);
         this.add(table1);
         this.add(table2);
