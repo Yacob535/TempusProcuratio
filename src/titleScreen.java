@@ -70,7 +70,7 @@ public class titleScreen extends JPanel implements ActionListener {
         else if(e.getSource() == deficiencies)
         {
             this.setVisible(false);
-            deficienciesRoom def = new deficienciesRoom(f,counter);
+            infoScreenToDef def = new infoScreenToDef(f);
             f.add(def);
             def.setVisible(true);
         }
