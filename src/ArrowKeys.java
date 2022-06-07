@@ -238,31 +238,37 @@ public class ArrowKeys implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        System.out.println(e.getSource());
-        if(e.getSource() == object1){
+    public void actionPerformed(ActionEvent t) {
+        System.out.println(t.getSource());
+        if(t.getSource() == object1){
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
             message4.setVisible(true);
             objectInteract++;
+            //System.out.println("Press enter to continue");
+            try{System.in.read();}
+            catch(Exception e){}
             message4.setVisible(false);
             object1.setVisible(true);
             object2.setVisible(true);
             object3.setVisible(true);
         }
-        else if(e.getSource() == object2){
+        else if(t.getSource() == object2){
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
             message3.setVisible(true);
             objectInteract++;
+            System.out.println("Press enter to continue");
+            try{System.in.read();}
+            catch(Exception e){}
             message3.setVisible(false);
             object1.setVisible(true);
             object2.setVisible(true);
             object3.setVisible(true);
         }
-        else if(e.getSource() == object3){
+        else if(t.getSource() == object3){
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -273,7 +279,7 @@ public class ArrowKeys implements ActionListener {
             object2.setVisible(true);
             object3.setVisible(true);
         }
-        else if(e.getSource() == object4){
+        else if(t.getSource() == object4){
             object4.setVisible(false);
             object5.setVisible(false);
             object6.setVisible(false);
@@ -284,7 +290,7 @@ public class ArrowKeys implements ActionListener {
             object5.setVisible(true);
             object6.setVisible(true);
         }
-        else if(e.getSource() == object5){
+        else if(t.getSource() == object5){
             object4.setVisible(false);
             object5.setVisible(false);
             object6.setVisible(false);
@@ -295,7 +301,7 @@ public class ArrowKeys implements ActionListener {
             object5.setVisible(true);
             object6.setVisible(true);
         }
-        else if(e.getSource() == object6){
+        else if(t.getSource() == object6){
             object4.setVisible(false);
             object5.setVisible(false);
             object6.setVisible(false);
@@ -306,14 +312,14 @@ public class ArrowKeys implements ActionListener {
             object5.setVisible(true);
             object6.setVisible(true);
         }
-        else if(e.getSource() == object7){
+        else if(t.getSource() == object7){
             object7.setVisible(false);
             bMessage3.setVisible(true);
             strikes--;
             bMessage3.setVisible(false);
             object7.setVisible(true);
         }
-        else if(e.getSource() == object8){
+        else if(t.getSource() == object8){
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
@@ -324,7 +330,7 @@ public class ArrowKeys implements ActionListener {
             object9.setVisible(true);
             object10.setVisible(true);
         }
-        else if(e.getSource() == object9){
+        else if(t.getSource() == object9){
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
@@ -335,7 +341,7 @@ public class ArrowKeys implements ActionListener {
             object9.setVisible(true);
             object10.setVisible(true);
         }
-        else if(e.getSource() == object10){
+        else if(t.getSource() == object10){
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
