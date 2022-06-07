@@ -21,7 +21,12 @@ public class Main {
         f.setResizable(false);
         f.setSize(950, 650);
         titleScreen opening = new titleScreen(f);
-        f.add(opening);
+                /*
+
+        int t = 0;
+        int[] arr = new int[10];
+        ArrowKeys opening = new ArrowKeys(f,t,arr);
+        */f.add(opening);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
     }

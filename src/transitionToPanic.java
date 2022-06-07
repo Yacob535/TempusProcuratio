@@ -18,6 +18,8 @@ public class transitionToPanic extends JPanel implements ActionListener {
     JFrame f;
     JLabel but;
     JButton backButton;
+    int d = 0;
+    int[] arr = new int[10];
 
     /**
      * This constructor creates a continue button, and a line of text for the user to read
@@ -42,6 +44,13 @@ public class transitionToPanic extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == backButton)
+        {
+            this.setVisible(false);
+            ArrowKeys z = new ArrowKeys(f,d,arr);
+            f.add(z);
+            z.setVisible(true);
+        }
 
     }
 }

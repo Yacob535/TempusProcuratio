@@ -13,22 +13,22 @@ import java.util.*;
 /**
  * This class uses determines the number of times an arrow key is used
  */
-public class ArrowKeys implements ActionListener {
+public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
     int screenNum = 1;
     static int objectInteract = 0;
-    static int strikes = 3;
+    static int strikes = 0;
     /**
      * This method uses JFrames to create a model of our actual game frame and displays the arrow keys being used
      */
 
-    JFrame frame = new JFrame();
-
-
+    JFrame f;
+    int strike;
+    int[] touched = new int[10];
     JLabel bg1 = new background("roomPanel1.png",0,0,950,650);
     JLabel bg2 = new background("roomPanel2.png",0,0,950,650);
     JLabel bg3 = new background("roomPanel3.png",0,0,950,650);
     JLabel bg4 = new background("roomPanel4.png",0,0,950,650);
-    JButton object1 = new plainButton(new ImageIcon("distraction1.png"),0,315,608,3269);
+    JButton object1 = new plainButton(new ImageIcon("distraction1.png"),0,315,608,329);
     JButton object2 = new plainButton(new ImageIcon("distraction2.png"),618,320,322,340);
     JButton object3 = new plainButton(new ImageIcon("distraction3.png"),20,0,534,270);
     JButton object4 = new plainButton(new ImageIcon("distraction4.png"),530,290,380,323);
@@ -49,40 +49,50 @@ public class ArrowKeys implements ActionListener {
     JLabel message3 = new background("message3.png",0,0,950,650);
     JLabel message4 = new background("message4.png",0,0,950,650);
 
-    JPanel panel = new JPanel();
 
-    public ArrowKeys() {
+    public ArrowKeys(JFrame q,int z,int[] zz) {
+        f = q;
+        z = strike;
+        touched = zz;
+        this.setLayout(null);
 
-        frame.setSize(950, 650);
-        frame.setFocusable(true);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.add(object1);
+        //this.add(object2);
 
-        panel.setLayout(null);
-        panel.add(object1);
-        panel.add(object2);
-        panel.add(object3);
-        panel.add(object4);
-        panel.add(object5);
-        panel.add(object6);
-        panel.add(object7);
-        panel.add(object8);
-        panel.add(object9);
-        panel.add(object10);
-        panel.add(bMessage1);
-        panel.add(bMessage2);
-        panel.add(bMessage3);
-        panel.add(bMessage4);
-        panel.add(bMessage5);
-        panel.add(bMessage6);
-        panel.add(message1);
-        panel.add(message2);
-        panel.add(message3);
-        panel.add(message4);
-        panel.add(bg1);
-        panel.add(bg2);
-        panel.add(bg3);
-        panel.add(bg4);
+        //this.add(object3);
+        this.add(object4);
+        this.add(object5);
+
+
+        this.add(object6);
+
+
+        this.add(object7);
+
+
+        this.add(object8);
+
+
+        this.add(object9);
+
+        this.add(object10);
+
+
+
+        this.add(bMessage1);
+        this.add(bMessage2);
+        this.add(bMessage3);
+        this.add(bMessage4);
+        this.add(bMessage5);
+        this.add(bMessage6);
+        this.add(message1);
+        this.add(message2);
+        this.add(message3);
+        this.add(message4);
+        this.add(bg1);
+        this.add(bg2);
+        this.add(bg3);
+        this.add(bg4);
 
         object1.setVisible(true);
         object2.setVisible(true);
@@ -94,10 +104,12 @@ public class ArrowKeys implements ActionListener {
         object8.setVisible(false);
         object9.setVisible(false);
         object10.setVisible(false);
+
         bg1.setVisible(true);
         bg2.setVisible(false);
         bg3.setVisible(false);
         bg4.setVisible(false);
+
         bMessage1.setVisible(false);
         bMessage2.setVisible(false);
         bMessage3.setVisible(false);
@@ -120,20 +132,28 @@ public class ArrowKeys implements ActionListener {
         object9.addActionListener(this);
         object10.addActionListener(this);
 
-        frame.addKeyListener(new KeyListener() {
-
-            @Override
+        touched[2] = 1;
+        touched[3] = 1;
+        touched[6] = 1;
+        touched[7] = 1;
+        touched[8] = 1;
+        touched[9] = 1;
+        f.addKeyListener(new KeyListener() {
             public void keyReleased(KeyEvent e) {
 
             }
+
             @Override
-            public void keyTyped(KeyEvent e) {}
+            public void keyTyped(KeyEvent e) {
+            }
+
             @Override
             public void keyPressed(KeyEvent e) {
 
                 int keyCode = e.getKeyCode();
                 if (screenNum == 1) {
-                    if (keyCode == 39){
+                    if (keyCode == 39) {
+                        System.out.println("HI");
                         object1.setVisible(false);
                         object2.setVisible(false);
                         object3.setVisible(false);
@@ -144,7 +164,8 @@ public class ArrowKeys implements ActionListener {
                         bg2.setVisible(true);
                         screenNum = 2;
                     }
-                    if (keyCode == 37){
+                    if (keyCode == 37) {
+                        System.out.println("HI");
                         object1.setVisible(false);
                         object2.setVisible(false);
                         object3.setVisible(false);
@@ -153,9 +174,9 @@ public class ArrowKeys implements ActionListener {
                         bg4.setVisible(true);
                         screenNum = 4;
                     }
-                }
-                else if (screenNum == 2) {
-                    if (keyCode == 39){
+                } else if (screenNum == 2) {
+                    if (keyCode == 39) {
+                        System.out.println("HI");
                         object8.setVisible(false);
                         object9.setVisible(false);
                         object10.setVisible(false);
@@ -166,7 +187,8 @@ public class ArrowKeys implements ActionListener {
                         bg3.setVisible(true);
                         screenNum = 3;
                     }
-                    if (keyCode == 37){
+                    if (keyCode == 37) {
+                        System.out.println("HI");
                         object8.setVisible(false);
                         object9.setVisible(false);
                         object10.setVisible(false);
@@ -177,9 +199,9 @@ public class ArrowKeys implements ActionListener {
                         bg1.setVisible(true);
                         screenNum = 1;
                     }
-                }
-                else if (screenNum == 3) {
-                    if (keyCode == 39){
+                } else if (screenNum == 3) {
+                    if (keyCode == 39) {
+                        System.out.println("HI");
                         object4.setVisible(false);
                         object5.setVisible(false);
                         object6.setVisible(false);
@@ -188,7 +210,8 @@ public class ArrowKeys implements ActionListener {
                         bg4.setVisible(true);
                         screenNum = 4;
                     }
-                    if (keyCode == 37){
+                    if (keyCode == 37) {
+                        System.out.println("HI");
                         object4.setVisible(false);
                         object5.setVisible(false);
                         object6.setVisible(false);
@@ -199,9 +222,9 @@ public class ArrowKeys implements ActionListener {
                         bg2.setVisible(true);
                         screenNum = 2;
                     }
-                }
-                else if (screenNum == 4) {
-                    if (keyCode == 39){
+                } else if (screenNum == 4) {
+                    if (keyCode == 39) {
+                        System.out.println("HI");
                         object7.setVisible(false);
                         bg4.setVisible(false);
                         object1.setVisible(true);
@@ -210,7 +233,8 @@ public class ArrowKeys implements ActionListener {
                         bg1.setVisible(true);
                         screenNum = 1;
                     }
-                    if (keyCode == 37){
+                    if (keyCode == 37) {
+                        System.out.println("HI");
                         object7.setVisible(false);
                         bg4.setVisible(false);
                         object4.setVisible(true);
@@ -219,28 +243,27 @@ public class ArrowKeys implements ActionListener {
                         bg3.setVisible(true);
                         screenNum = 3;
                     }
-                }
-                else if(objectInteract == 4){
+                } else if (objectInteract == 4) {
                     return;
-                }
-                else if(strikes == 0){
+                } else if (strikes == 0) {
                     return;
                 }
             }
         });
+        //f.add(this);
 
-
-        frame.add(panel);
-    }
-
-    public static void main(String[] args) {
-        new ArrowKeys();
     }
 
     @Override
     public void actionPerformed(ActionEvent t) {
         System.out.println(t.getSource());
         if(t.getSource() == object1){
+
+            touched[0] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,0);
+            f.add(p);
+            p.setVisible(true);
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -252,6 +275,12 @@ public class ArrowKeys implements ActionListener {
             object3.setVisible(true);
         }
         else if(t.getSource() == object2){
+
+            touched[1] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,1);
+            f.add(p);
+            p.setVisible(true);
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -263,6 +292,11 @@ public class ArrowKeys implements ActionListener {
             object3.setVisible(true);
         }
         else if(t.getSource() == object3){
+            touched[2] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,2);
+            f.add(p);
+            p.setVisible(true);
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -274,6 +308,11 @@ public class ArrowKeys implements ActionListener {
             object3.setVisible(true);
         }
         else if(t.getSource() == object4){
+            touched[3] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,3);
+            f.add(p);
+            p.setVisible(true);
             object4.setVisible(false);
             object5.setVisible(false);
             object6.setVisible(false);
@@ -285,6 +324,11 @@ public class ArrowKeys implements ActionListener {
             object6.setVisible(true);
         }
         else if(t.getSource() == object5){
+            touched[4] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,4);
+            f.add(p);
+            p.setVisible(true);
             object4.setVisible(false);
             object5.setVisible(false);
             object6.setVisible(false);
@@ -296,6 +340,12 @@ public class ArrowKeys implements ActionListener {
             object6.setVisible(true);
         }
         else if(t.getSource() == object6){
+            touched[5] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,5);
+            f.add(p);
+            p.setVisible(true);
+            /*
             object4.setVisible(false);
             object5.setVisible(false);
             object6.setVisible(false);
@@ -305,15 +355,31 @@ public class ArrowKeys implements ActionListener {
             object4.setVisible(true);
             object5.setVisible(true);
             object6.setVisible(true);
+
+             */
         }
         else if(t.getSource() == object7){
+            touched[6] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,6);
+            f.add(p);
+            p.setVisible(true);
+            /*
             object7.setVisible(false);
             bMessage3.setVisible(true);
             strikes--;
             bMessage3.setVisible(false);
             object7.setVisible(true);
+
+             */
         }
         else if(t.getSource() == object8){
+            touched[7] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,7);
+            f.add(p);
+            p.setVisible(true);
+            /*
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
@@ -323,8 +389,16 @@ public class ArrowKeys implements ActionListener {
             object8.setVisible(true);
             object9.setVisible(true);
             object10.setVisible(true);
+
+             */
         }
         else if(t.getSource() == object9){
+            touched[8] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,8);
+            f.add(p);
+            p.setVisible(true);
+            /*
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
@@ -334,8 +408,16 @@ public class ArrowKeys implements ActionListener {
             object8.setVisible(true);
             object9.setVisible(true);
             object10.setVisible(true);
+
+             */
         }
         else if(t.getSource() == object10){
+            touched[9] = 1;
+            this.setVisible(false);
+            popUpPanic p = new popUpPanic(f,strikes,touched,9);
+            f.add(p);
+            p.setVisible(true);
+            /*
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
@@ -345,7 +427,24 @@ public class ArrowKeys implements ActionListener {
             object8.setVisible(true);
             object9.setVisible(true);
             object10.setVisible(true);
+
+             */
         }
     }
 
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+System.out.println("HELLO");
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
