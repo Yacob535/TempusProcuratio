@@ -246,9 +246,6 @@ public class ArrowKeys implements ActionListener {
             object3.setVisible(false);
             message4.setVisible(true);
             objectInteract++;
-            //System.out.println("Press enter to continue");
-            try{System.in.read();}
-            catch(Exception e){}
             message4.setVisible(false);
             object1.setVisible(true);
             object2.setVisible(true);
@@ -260,9 +257,6 @@ public class ArrowKeys implements ActionListener {
             object3.setVisible(false);
             message3.setVisible(true);
             objectInteract++;
-            System.out.println("Press enter to continue");
-            try{System.in.read();}
-            catch(Exception e){}
             message3.setVisible(false);
             object1.setVisible(true);
             object2.setVisible(true);
