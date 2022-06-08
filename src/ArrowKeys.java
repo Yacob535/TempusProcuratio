@@ -52,9 +52,14 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
 
     public ArrowKeys(JFrame q,int z,int[] zz) {
         f = q;
-        z = strike;
         touched = zz;
         this.setLayout(null);
+        Action a;
+        a = new wKey();
+        bg1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("Alt"),'a');
+        bg1.getActionMap().put('a',a);
+
+
 
         //this.add(object1);
         //this.add(object2);
@@ -104,6 +109,7 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
         object8.setVisible(false);
         object9.setVisible(false);
         object10.setVisible(false);
+
 
         bg1.setVisible(true);
         bg2.setVisible(false);
@@ -250,7 +256,7 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
                 }
             }
         });
-        //f.add(this);
+        f.add(this);
 
     }
 
@@ -440,7 +446,7 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-System.out.println("HELLO");
+        System.out.println("HELLO");
     }
 
     @Override
