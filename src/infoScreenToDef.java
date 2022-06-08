@@ -24,9 +24,9 @@ public class infoScreenToDef extends JPanel implements ActionListener {
         this.add(backButton);
         playNow = new plainButton(new ImageIcon("backButton.png"),305,25,100,29);
         playNow.addActionListener(this);
+        this.add(logo);
         this.add(playNow);
         this.add(bg);
-        this.add(logo);
         this.add(intro);
     }
 
