@@ -18,7 +18,6 @@ public class transitionToPanic extends JPanel implements ActionListener {
     JFrame f;
     JLabel but, logo;
     JButton backButton;
-    int d = 0;
     int[] arr = new int[10];
 
     /**
@@ -48,7 +47,7 @@ public class transitionToPanic extends JPanel implements ActionListener {
         if(e.getSource() == backButton)
         {
             this.setVisible(false);
-            ArrowKeys z = new ArrowKeys(f,d,arr);
+            ArrowKeys z = new ArrowKeys(f,1,arr,0);
             f.add(z);
             z.setVisible(true);
         }

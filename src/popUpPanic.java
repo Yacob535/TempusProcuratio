@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,37 +6,46 @@ public class popUpPanic extends JPanel implements ActionListener {
 
     int[] checked;
     JFrame f;
-    JLabel but;
-    JButton backButton;
-    int strikes;
-    public popUpPanic(JFrame q,int st,int[] ar,int ch)
+    JLabel bg,text1,text2;
+    JButton backButton,backButton1,backButton2;
+    int strikes, screenNum,check;
+    public popUpPanic(JFrame q,int st,int[] ar,int ch,int rn)
     {
         f = q;
         checked = ar;
         strikes = st;
+        screenNum = rn;
         this.setLayout(null);
-        but = new JLabel("Great Job! Now let's test your knowledge of distractions...");
-        but.setFont(new Font("Helvetica",Font.PLAIN,18));
-        but.setBounds(100,100,1000,100);
         backButton = new plainButton(new ImageIcon("backButton.png"),25,25,100,29);
+        backButton1 = new plainButton(new ImageIcon("backButton.png"),25,205,100,29);
+        backButton2 = new plainButton(new ImageIcon("backButton.png"),205,205,100,29);
+        text1 = new JLabel("this is testing the text");
+        text2 = new JLabel("this is another test");
+        text1.setBounds(100,100,400,100);
+        text2.setBounds(100,100,400,100);
+        bg = new background("skyBlue.png",0,0,1000,1000);
         backButton.addActionListener(this);
-        this.add(backButton);
-
-        this.add(but);
-        this.add(backButton);
-        this.setVisible(true);
-        if(ch == 2 || ch == 3 || ch == 6 || ch == 7 || ch == 8 || ch == 9)
+        backButton1.addActionListener(this);
+        backButton2.addActionListener(this);
+        if(check == 0)
         {
-            strikes++;
+            this.add(text2);
         }
-
+        else if(check == 1)
+        {
+            this.add(text1);
+        }
+        this.add(backButton);
+        this.add(backButton1);
+        this.add(backButton2);
+        this.add(bg);
+        this.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == backButton)
         {
-            System.out.println(strikes);
             if(strikes >= 3)
             {
                 System.out.println("L + Ratio");
@@ -49,7 +57,7 @@ public class popUpPanic extends JPanel implements ActionListener {
                     if(checked[t] == 0)
                     {
                         this.setVisible(false);
-                        ArrowKeys title = new ArrowKeys(f,strikes,checked);
+                        ArrowKeys title = new ArrowKeys(f,screenNum,checked,strikes);
                         f.add(title);
                         title.setVisible(true);
                         break;
@@ -59,6 +67,23 @@ public class popUpPanic extends JPanel implements ActionListener {
                 {
                     System.out.println("wowowowowow amazing");
                 }
+            }
+        }
+        else if(e.getSource() == backButton1)
+        {
+            if(check == 0)
+            {
+                this.setVisible(false);
+                ArrowKeys p = new ArrowKeys(f,1,checked,1);
+                f.add(p);
+                p.setVisible(true);
+            }
+            else if(check == 1)
+            {
+                this.setVisible(false);
+                knowledgeCheck p = new knowledgeCheck(f,1);
+                f.add(p);
+                p.setVisible(true);
             }
         }
 
