@@ -20,8 +20,8 @@ public class Main {
         JFrame f = new JFrame("Due later? Do Later!");
         f.setResizable(false);
         f.setSize(950, 650);
-        titleScreen opening = new titleScreen(f);
-        //transitionToPanic opening = new transitionToPanic(f);
+        //titleScreen opening = new titleScreen(f);
+        transitionToPanic opening = new transitionToPanic(f);
                 /*
 
         int t = 0;

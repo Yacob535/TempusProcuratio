@@ -13,7 +13,7 @@ import java.util.*;
 /**
  * This class uses determines the number of times an arrow key is used
  */
-public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
+public class ArrowKeys extends JPanel implements ActionListener{
     int screenNum = 1;
     static int objectInteract = 0;
     static int strikes = 0;
@@ -56,7 +56,7 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
         this.setLayout(null);
         Action a;
         a = new wKey();
-        bg1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("Alt"),'a');
+        bg1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke((char) 39),'a');
         bg1.getActionMap().put('a',a);
 
 
@@ -249,10 +249,6 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
                         bg3.setVisible(true);
                         screenNum = 3;
                     }
-                } else if (objectInteract == 4) {
-                    return;
-                } else if (strikes == 0) {
-                    return;
                 }
             }
         });
@@ -436,21 +432,5 @@ public class ArrowKeys extends JPanel implements ActionListener,KeyListener{
 
              */
         }
-    }
-
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("HELLO");
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
     }
 }
