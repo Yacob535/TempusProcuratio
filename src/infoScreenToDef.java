@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class infoScreenToDef extends JPanel implements ActionListener {
 
     JButton backButton,playNow;
-    JLabel bg;
+    JLabel bg, logo;
     JFrame f;
     int[] zz = new int[7];
     public infoScreenToDef(JFrame q)
@@ -16,6 +16,7 @@ public class infoScreenToDef extends JPanel implements ActionListener {
         bg = new background("skyBlue.png",0,0,1000,1000);
         Font textSize = new Font("Helvetica",Font.PLAIN,25);
         JLabel intro = new JLabel("<html> Welcome to the game! In the next screen you will see a typical child’s room, no doubt reminding you of your own. This room, being the room of deficiencies, has many objects, when you click on them, you will be given a description of how this object affects your work. Be sure you pay attention, just in case you fall into a panic!  </html>");
+        logo = new printLogo(0,50);
         intro.setBounds(10, 30, 900, 600);
         intro.setFont(textSize);
         backButton = new plainButton(new ImageIcon("backButton.png"),25,25,100,29);
@@ -25,6 +26,7 @@ public class infoScreenToDef extends JPanel implements ActionListener {
         playNow.addActionListener(this);
         this.add(playNow);
         this.add(bg);
+        this.add(logo);
         this.add(intro);
     }
 
