@@ -22,13 +22,21 @@ public class Main {
         f.setSize(950, 650);
         //titleScreen opening = new titleScreen(f);
         transitionToPanic opening = new transitionToPanic(f);
-                /*
 
         int t = 0;
         int[] arr = new int[10];
-        ArrowKeys opening = new ArrowKeys(f,t,arr);
-        */f.add(opening);
+        //ArrowKeys opening = new ArrowKeys(f,t,arr);
+
+        //f.add(opening);
+
+        GamePanel gamePanel = new GamePanel();
+        f.add(gamePanel);
+        f.pack();
+        f.setLocationRelativeTo(null);
+
+
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
+        gamePanel.startGameThread();
     }
 }
