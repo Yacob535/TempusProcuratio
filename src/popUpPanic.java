@@ -72,11 +72,11 @@ public class popUpPanic extends JPanel implements ActionListener {
         }
         else if(e.getSource() == backButton1)
         {
-
             GamePanel gamePanel = new GamePanel();
             f.add(gamePanel);
             f.pack();
             f.setLocationRelativeTo(null);
+            f.setVisible(true);
             gamePanel.startGameThread();
             /*
             System.out.println(check);
