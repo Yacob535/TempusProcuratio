@@ -40,7 +40,7 @@ public class HighScore extends JPanel implements ActionListener {
         backButton = new JButton(b);
         backButton.addActionListener(this);
         backButton.setBounds(25,25,100,29);
-        Font textSize = new Font("Arial",Font.PLAIN,25);
+        Font textSize = new Font("Consolas",Font.PLAIN,25);
         this.setFont(textSize);
         try (BufferedReader br = new BufferedReader(new FileReader("highscore.txt"))) {
             String line;
@@ -142,16 +142,16 @@ public class HighScore extends JPanel implements ActionListener {
         }
         header1 = new JLabel("Name");
         header1.setFont(textSize);
-        header1.setBounds(120,77,500,100);
+        header1.setBounds(120,82,500,100);
         header2 = new JLabel("Score");
         header2.setFont(textSize);
-        header2.setBounds(300,77,500,100);
+        header2.setBounds(300,82,500,100);
         header3 = new JLabel("Name");
         header3.setFont(textSize);
-        header3.setBounds(565,77,500,100);
+        header3.setBounds(565,82,500,100);
         header4 = new JLabel("Name");
         header4.setFont(textSize);
-        header4.setBounds(745,77,500,100);
+        header4.setBounds(745,82,500,100);
         this.add(header1);
         this.add(header2);
         this.add(header3);
