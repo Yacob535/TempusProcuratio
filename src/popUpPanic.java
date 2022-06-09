@@ -12,13 +12,14 @@ public class popUpPanic extends JPanel implements ActionListener {
     public popUpPanic(JFrame q,int st,int[] ar,int ch,int rn)
     {
         f = q;
+        check = ch;
         checked = ar;
         strikes = st;
         screenNum = rn;
         this.setLayout(null);
         backButton = new plainButton(new ImageIcon("backButton.png"),25,25,100,29);
-        backButton1 = new plainButton(new ImageIcon("backButton.png"),25,205,100,29);
-        backButton2 = new plainButton(new ImageIcon("backButton.png"),205,205,100,29);
+        backButton1 = new plainButton(new ImageIcon("backButton.png"),300,500,100,29);
+        backButton2 = new plainButton(new ImageIcon("backButton.png"),550,500,100,29);
         text1 = new JLabel("this is testing the text");
         text2 = new JLabel("this is another test");
         text1.setBounds(100,100,400,100);
@@ -71,20 +72,31 @@ public class popUpPanic extends JPanel implements ActionListener {
         }
         else if(e.getSource() == backButton1)
         {
+
+            GamePanel gamePanel = new GamePanel();
+            f.add(gamePanel);
+            f.pack();
+            f.setLocationRelativeTo(null);
+            gamePanel.startGameThread();
+            /*
+            System.out.println(check);
             if(check == 0)
             {
                 this.setVisible(false);
-                ArrowKeys p = new ArrowKeys(f,1,checked,1);
+                System.out.println("hi");
+                ArrowKeys p = new ArrowKeys(f,screenNum,checked,strikes);
                 f.add(p);
                 p.setVisible(true);
             }
             else if(check == 1)
             {
                 this.setVisible(false);
-                knowledgeCheck p = new knowledgeCheck(f,1);
+                knowledgeCheck p = new knowledgeCheck(f,0);
                 f.add(p);
                 p.setVisible(true);
             }
+
+             */
         }
 
     }

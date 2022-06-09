@@ -44,7 +44,7 @@ public class knowledgeCheck extends JPanel implements ActionListener {
 
         if(question == 0)
         {
-
+            bad1.setVisible(true);
         }
         else if(question == 1)
         {

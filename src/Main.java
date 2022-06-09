@@ -27,16 +27,13 @@ public class Main {
         int[] arr = new int[10];
         //ArrowKeys opening = new ArrowKeys(f,t,arr);
 
-        //f.add(opening);
+        f.add(opening);
 
-        GamePanel gamePanel = new GamePanel();
-        f.add(gamePanel);
-        f.pack();
-        f.setLocationRelativeTo(null);
+
 
 
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
-        gamePanel.startGameThread();
+
     }
 }
