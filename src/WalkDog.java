@@ -73,14 +73,17 @@ public class WalkDog extends characterPosition {
                 y = 650;
             }
 
-            /**
-             * vertical walls
-             */
             if((250 > x && x > 200) && (y < 180 && y > 70)){
                 x = 200;
             }
             else if((x > 280 && x < 290) && (y < 240 && y > 60)) {
                 x=280;
+            }
+            else if((x > 0 && x < 10) && (y < 120)){
+                x = 0;
+            }
+            else if((x > 0 && x < 10) && (y < 650 && y > 180)){
+                x = 0;
             }
             else if((x > 260 && x < 270) && (y < 240 && y > 60)) {
                 x=270;
@@ -154,6 +157,22 @@ public class WalkDog extends characterPosition {
                 x = 390;
             }
 
+            else if((x > 70 && x < 80) && (y < 120 && y > 65)){
+                x = 70;
+            }
+            else if((x > 10 && x < 50) && (y < 120)){
+                y = 120;
+            }
+            else if((y > 40 && y < 120) && (x > 560 && x < 850)){
+                x = 560;
+            }
+            else if((y < 190 && y > 120) && (x > 480 && x < 800)){
+                x = 800;
+            }
+            else if((x > 340 && x < 380) && (y < 50 && y > 40)) {
+                y = 50;
+            }
+
 
             /**
              * Horizontal wall for maze
@@ -212,10 +231,10 @@ public class WalkDog extends characterPosition {
             else if((y > 110 && y < 120) && (x > 560 && x < 850)){
                 y = 120;
             }
-            else if((y > 120 && y < 180) && (x > 490 && x < 810)){
+            else if((y > 120 && y < 130) && (x > 480 && x < 810)){
                 y = 120;
             }
-            else if((y > 190 && y < 200) && (x > 550 && x < 800)){
+            else if((y > 190 && y < 200) && (x > 480 && x < 800)){
                 y = 200;
             }
             else if((y > 200 && y < 260) && (x > 560 && x < 860)){
@@ -224,7 +243,7 @@ public class WalkDog extends characterPosition {
             else if((y > 270 && y < 280) && (x >560 && x < 860)){
                 y = 280;
             }
-            else if((y > 280 && y < 340) && (x >500 && x < 810)){
+            else if((y > 280 && y < 340) && (x > 500 && x < 810)){
                 y = 280;
             }
             else if((y > 350 && y < 360) && (x > 500 && x < 800)){
