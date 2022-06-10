@@ -19,9 +19,9 @@ public class Main {
     public static void main(String[] args) {
         JFrame f = new JFrame("Due later? Do Later!");
         f.setResizable(false);
-        f.setSize(950, 650);
-       // titleScreen opening = new titleScreen(f);
-        transitionToPanic opening = new transitionToPanic(f);
+        f.setSize(950, 675);
+        titleScreen opening = new titleScreen(f);
+        //transitionToPanic opening = new transitionToPanic(f);
 
         int t = 0;
         int[] arr = new int[10];

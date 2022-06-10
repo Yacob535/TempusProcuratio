@@ -13,10 +13,11 @@ import java.awt.event.ActionListener;
  * screen
  */
 public class titleScreen extends JPanel implements ActionListener {
-    JButton exit, deficiencies, hiscore;
+    JButton exit, deficiencies, hiscore,continued;
     JLabel logo, bg1, bg2;
     JFrame f;
     int[] counter = new int[7];
+    int continueStage = 0; // 0 = deficiency, 1 = panic room, 2 = escape room
 
     /**
      * This constructor creates 3 buttons, implements a background,
@@ -31,7 +32,36 @@ public class titleScreen extends JPanel implements ActionListener {
         deficiencies = new colouredButton("Start Game!",62,500,200,75,255,255,255);
         hiscore = new colouredButton("Highscores",362,500,200,75,255,255,255);
         bg1 = new background("titleScreen.png",275,-75,950,600);
-        logo = new printLogo(0,0);
+        logo = new printLogo(840,525);
+        bg2 = new background("skyBlue.png",0,0,1000,1000);
+        exit.addActionListener(this);
+        deficiencies.addActionListener(this);
+        hiscore.addActionListener(this);
+
+        this.add(exit);
+        this.add(deficiencies);
+        this.add(hiscore);
+        this.add(bg1);
+        this.add(logo);
+        this.add(bg2);
+        this.setVisible(true);
+    }
+    public titleScreen(JFrame q, int i)
+    {
+        f = q;
+        continueStage = i;
+        this.setLayout(null);
+        exit = new colouredButton("Exit Game",638,500,200,75,255,255,255);
+        deficiencies = new colouredButton("New Game!",62,500,200,75,255,255,255);
+        hiscore = new colouredButton("Highscores",362,500,200,75,255,255,255);
+        if (continueStage !=0)
+        {
+            continued = new colouredButton("Continue!", 62, 400, 200, 75, 255, 255, 255);
+            continued.addActionListener(this);
+            this.add (continued);
+        }
+        bg1 = new background("titleScreen.png",275,-75,950,600);
+        logo = new printLogo(840,525);
         bg2 = new background("skyBlue.png",0,0,1000,1000);
         exit.addActionListener(this);
         deficiencies.addActionListener(this);
@@ -75,7 +105,7 @@ public class titleScreen extends JPanel implements ActionListener {
             scores.addHighscore(0, "Dev9");
             scores.addHighscore(0, "Dev10");
             scores.updateHighscores();
-            HighScore high = new HighScore(f);
+            HighScore high = new HighScore(f,continueStage);
             f.add(high);
             high.setVisible(true);
         }
@@ -85,6 +115,20 @@ public class titleScreen extends JPanel implements ActionListener {
             infoScreenToDef def = new infoScreenToDef(f);
             f.add(def);
             def.setVisible(true);
+        }
+        else if (e.getSource()==continued)
+        {
+            if (continueStage == 1)
+            {
+                this.setVisible (false);
+                transitionToPanic pan = new transitionToPanic (f);
+                f.add(pan);
+                pan.setVisible (true);
+            }
+            //else if (continueStage == 2)
+            //{
+                // the whole escape room thing
+            //}
         }
     }
 }

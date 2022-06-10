@@ -20,27 +20,28 @@ import java.io.FileReader;
 public class HighScore extends JPanel implements ActionListener {
 
     JLabel bg2,logo,table1, table2, header1, header2, header3, header4, name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, score1,score2,score3,score4,score5,score6,score7,score8,score9,score10;
-    JButton backButton;
+    plainButton backButton;
     JFrame f;
+    int contVar;
 
     /**
      * This class puts all the items onto a screen
      * Uses graphics to print values from file highscore onto the screen
      * @param q is used to pass the JFrame to the JPanel classes
      */
-    public HighScore(JFrame q)
+    public HighScore(JFrame q, int i)
     {
         f = q;
+        contVar=i;
         this.setLayout(null);
         bg2 = new background("skyBlue.png",0,0,1000,1000);
         table1 = new background("table1.png",15,90,450,450);
         table2 = new background("table1.png",460,90,450,450);
         logo = new printLogo(840,525);
-        Icon b = new ImageIcon("backButton.png");
-        backButton = new JButton(b);
+        backButton = new plainButton(new ImageIcon("backButton.png"), 25,25,100,29);
         backButton.addActionListener(this);
-        backButton.setBounds(25,25,100,29);
-        Font textSize = new Font("Consolas",Font.PLAIN,25);
+
+        Font textSize = new Font("Arial",Font.PLAIN,25);
         this.setFont(textSize);
         try (BufferedReader br = new BufferedReader(new FileReader("highscore.txt"))) {
             String line;
@@ -142,16 +143,16 @@ public class HighScore extends JPanel implements ActionListener {
         }
         header1 = new JLabel("Name");
         header1.setFont(textSize);
-        header1.setBounds(120,82,500,100);
+        header1.setBounds(120,77,500,100);
         header2 = new JLabel("Score");
         header2.setFont(textSize);
-        header2.setBounds(300,82,500,100);
+        header2.setBounds(300,77,500,100);
         header3 = new JLabel("Name");
         header3.setFont(textSize);
-        header3.setBounds(565,82,500,100);
+        header3.setBounds(565,77,500,100);
         header4 = new JLabel("Name");
         header4.setFont(textSize);
-        header4.setBounds(745,82,500,100);
+        header4.setBounds(745,77,500,100);
         this.add(header1);
         this.add(header2);
         this.add(header3);
@@ -168,7 +169,7 @@ public class HighScore extends JPanel implements ActionListener {
         if(e.getSource() == backButton)
         {
             this.setVisible(false);
-            titleScreen title = new titleScreen(f);
+            titleScreen title = new titleScreen(f, contVar);
             f.add(title);
             title.setVisible(true);
         }
