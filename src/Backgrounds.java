@@ -1,6 +1,6 @@
 import java.awt.image.BufferedImage;
 
-public class mazeBackground {
+public class Backgrounds {
 
     public BufferedImage image;
 }

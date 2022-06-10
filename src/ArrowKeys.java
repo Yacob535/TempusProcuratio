@@ -45,7 +45,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
     JLabel message2 = new background("message2.png", 0, 0, 950, 650);
     JLabel message3 = new background("message3.png", 0, 0, 950, 650);
     JLabel message4 = new background("message4.png", 0, 0, 950, 650);
-
+    JButton pause1 = new plainButton(new ImageIcon("pauseButton.png"),500,0,45,44);
     /**
      * Creation of a AbstractAction. This method listens for any right arrow key presses
      *
@@ -55,6 +55,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             if (screenNum == 1) {
+                pause1.setVisible(true);
                 object1.setVisible(false);
                 object2.setVisible(false);
                 object3.setVisible(false);
@@ -65,6 +66,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
                 bg2.setVisible(true);
                 screenNum = 2;
             } else if (screenNum == 2) {
+                pause1.setVisible(true);
                 object8.setVisible(false);
                 object9.setVisible(false);
                 object10.setVisible(false);
@@ -75,6 +77,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
                 bg3.setVisible(true);
                 screenNum = 3;
             } else if (screenNum == 3) {
+                pause1.setVisible(true);
                 object4.setVisible(false);
                 object5.setVisible(false);
                 object6.setVisible(false);
@@ -83,6 +86,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
                 bg4.setVisible(true);
                 screenNum = 4;
             } else if (screenNum == 4) {
+                pause1.setVisible(true);
                 object7.setVisible(false);
                 bg4.setVisible(false);
                 object1.setVisible(true);
@@ -98,6 +102,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             if (screenNum == 1) {
+                pause1.setVisible(true);
                 object1.setVisible(false);
                 object2.setVisible(false);
                 object3.setVisible(false);
@@ -106,6 +111,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
                 bg4.setVisible(true);
                 screenNum = 4;
             } else if (screenNum == 2) {
+                pause1.setVisible(true);
                 object8.setVisible(false);
                 object9.setVisible(false);
                 object10.setVisible(false);
@@ -116,6 +122,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
                 bg1.setVisible(true);
                 screenNum = 1;
             } else if (screenNum == 3) {
+                pause1.setVisible(true);
                 object4.setVisible(false);
                 object5.setVisible(false);
                 object6.setVisible(false);
@@ -126,6 +133,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
                 bg2.setVisible(true);
                 screenNum = 2;
             } else if (screenNum == 4) {
+                pause1.setVisible(true);
                 object7.setVisible(false);
                 bg4.setVisible(false);
                 object4.setVisible(true);
@@ -168,7 +176,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         bg4.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(37, 0), 'b');
         bg4.getActionMap().put('b', b);
 
-
+        this.add(pause1);
         this.add(object1);
         this.add(object2);
         this.add(object3);
@@ -197,7 +205,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
 
         if(screenNum == 1)
         {
-            System.out.println(1);
+            pause1.setVisible(true);
             bg1.setVisible(true);
             object1.setVisible(true);
             object2.setVisible(true);
@@ -215,6 +223,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         }
         else if(screenNum == 2)
         {
+            pause1.setVisible(true);
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -225,7 +234,6 @@ public class ArrowKeys extends JPanel implements ActionListener{
             object8.setVisible(true);
             object9.setVisible(true);
             object10.setVisible(true);
-            System.out.println(2);
             bg2.setVisible(true);
             bg1.setVisible(false);
             bg3.setVisible(false);
@@ -233,6 +241,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         }
         else if(screenNum == 3)
         {
+            pause1.setVisible(true);
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -243,7 +252,6 @@ public class ArrowKeys extends JPanel implements ActionListener{
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
-            System.out.println(3);
             bg3.setVisible(true);
             bg1.setVisible(false);
             bg2.setVisible(false);
@@ -251,6 +259,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         }
         else if(screenNum == 4)
         {
+            pause1.setVisible(true);
             object1.setVisible(false);
             object2.setVisible(false);
             object3.setVisible(false);
@@ -261,13 +270,11 @@ public class ArrowKeys extends JPanel implements ActionListener{
             object8.setVisible(false);
             object9.setVisible(false);
             object10.setVisible(false);
-            System.out.println(4);
             bg4.setVisible(true);
             bg1.setVisible(false);
             bg3.setVisible(false);
             bg2.setVisible(false);
         }
-
 
         bMessage1.setVisible(false);
         bMessage2.setVisible(false);
@@ -280,6 +287,7 @@ public class ArrowKeys extends JPanel implements ActionListener{
         message3.setVisible(false);
         message4.setVisible(false);
 
+        pause1.addActionListener(this);
         object1.addActionListener(this);
         object2.addActionListener(this);
         object3.addActionListener(this);
@@ -297,8 +305,6 @@ public class ArrowKeys extends JPanel implements ActionListener{
         touched[7] = 1;
         touched[8] = 1;
         touched[9] = 1;
-
-
     }
 
     @Override
@@ -363,6 +369,13 @@ public class ArrowKeys extends JPanel implements ActionListener{
             touched[9] = 1;
             this.setVisible(false);
             popUpPanic p = new popUpPanic(f, strikes, touched, 9,screenNum);
+            f.add(p);
+            p.setVisible(true);
+        }
+        else if(t.getSource() == pause1)
+        {
+            this.setVisible(false);
+            pause p = new pause(f,1,screenNum,touched,strikes);
             f.add(p);
             p.setVisible(true);
         }

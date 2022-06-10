@@ -19,15 +19,21 @@ public class Main {
     public static void main(String[] args) {
         JFrame f = new JFrame("Due later? Do Later!");
         f.setResizable(false);
-        f.setSize(950, 650);
-       // titleScreen opening = new titleScreen(f);
-        transitionToPanic opening = new transitionToPanic(f);
+        f.setSize(950, 675);
 
+        //buttonMiniGame opening = new buttonMiniGame(f,0);
+        //transitionToPanic opening = new transitionToPanic(f);
+        HousePanel mapPanel = new HousePanel(1);
+        f.add(mapPanel);
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);
+        mapPanel.startGameThread();
         int t = 0;
         int[] arr = new int[10];
         //ArrowKeys opening = new ArrowKeys(f,t,arr);
 
-        f.add(opening);
+        //f.add(opening);
 
 
 

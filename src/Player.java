@@ -23,7 +23,7 @@ public class Player extends characterPosition{
     public void setDefaultValues(){
         x = 100;
         y = 100;
-        speed = 2;
+        speed = 100;
         direction = "down";
     }
     public void getPlayerImage(){
@@ -48,48 +48,7 @@ public class Player extends characterPosition{
             e.printStackTrace();
         }
     }
-    public void update(){
-        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true|| keyH.rightPressed == true){
-            if (keyH.upPressed == true) {
-                direction = "up";
-                y -= speed;
-            } else if (keyH.downPressed == true) {
-                direction = "down";
-                y += speed;
-            } else if (keyH.rightPressed == true) {
-                direction = "right";
-                x += speed;
-            } else if (keyH.leftPressed == true) {
-                direction = "left";
-                x -= speed;
-            }
-            if (x < 0) {
-                x = 0;
-            }
-            if (x > 950) {
-                x = 950;
-            }
-            if (y < 0) {
-                y = 0;
-            }
-            if (y > 650) {
-                y = 650;
-            }
-            spriteCounter++;
-            if (spriteCounter > 5) {
-                if (spriteNum == 1) {
-                    spriteNum = 2;
-                } else if (spriteNum == 2) {
-                    spriteNum = 3;
-                } else if (spriteNum == 3) {
-                    spriteNum = 4;
-                } else if (spriteNum == 4) {
-                    spriteNum = 1;
-                }
-                spriteCounter = 0;
-            }
-        }
-    }
+    public void update(){}
     public void draw(Graphics2D g2){
 
 

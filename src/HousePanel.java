@@ -1,20 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class MazePanel extends JPanel implements Runnable {
-
+public class HousePanel extends JPanel implements Runnable{
     final int screenWidth = 950;
     final int screenHeight = 650;
 
     int FPS = 60;
 
-    BackgroundManager backgroundM = new BackgroundManager(this,0);
+    BackgroundManager backgroundM = new BackgroundManager(this,1);
 
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
-    WalkDog walkDog = new WalkDog(this,keyH);
+    EscapeRoom w = new EscapeRoom(this,keyH);
     int instance;
-    public MazePanel(int i){
+    public HousePanel(int i){
         instance = i;
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
         this.setBackground(Color.BLACK);
@@ -52,14 +51,14 @@ public class MazePanel extends JPanel implements Runnable {
         }
     }
     public void update(){
-        walkDog.update();
+        w.update();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
         backgroundM.draw(g2);
-        walkDog.draw(g2);
+        w.draw(g2);
 
         g2.dispose();
     }

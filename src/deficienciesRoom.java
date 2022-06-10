@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
 public class deficienciesRoom extends JPanel implements ActionListener {
     JFrame f;
     JLabel bg1, circle1, circle2, circle3, circle4, circle5, circle6, circle7,shelf,books;
-    JButton toys,phone,food,timer,monitor,calendar,window;
+    JButton toys,phone,food,timer,monitor,calendar,window,back;
     int[] counter = new int[7];
     boolean contains;
     /**
@@ -42,6 +42,8 @@ public class deficienciesRoom extends JPanel implements ActionListener {
         monitor = new plainButton(new ImageIcon("monitor.png"),250,272,300,242);
         calendar = new plainButton(new ImageIcon("calendar.png"),50,50,200,191);
         window = new plainButton(new ImageIcon("window.png"),550,0,359,311);
+        back = new plainButton(new ImageIcon("backButton.png"),15,15,100,29);
+
         toys.addActionListener(this);
         phone.addActionListener(this);
         food.addActionListener(this);
@@ -49,6 +51,7 @@ public class deficienciesRoom extends JPanel implements ActionListener {
         monitor.addActionListener(this);
         calendar.addActionListener(this);
         window.addActionListener(this);
+        back.addActionListener(this);
 
         this.add(shelf);
         this.add(phone);
@@ -59,6 +62,7 @@ public class deficienciesRoom extends JPanel implements ActionListener {
         this.add(monitor);
         this.add(calendar);
         this.add(window);
+        this.add (back);
         this.add(bg1);
 
     }
@@ -147,6 +151,14 @@ public class deficienciesRoom extends JPanel implements ActionListener {
                 f.add(i);
                 i.setVisible(true);
             }
+        }
+        else if (e.getSource()==back)
+        {
+            this.setVisible(false);
+            contains = IntStream.of(counter).anyMatch(x->x==0);
+            infoScreen i = new infoScreen (f, counter, contains, 0);
+            f.add(i);
+            i.setVisible(true);
         }
     }
 
