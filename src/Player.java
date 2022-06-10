@@ -149,6 +149,6 @@ public class Player extends characterPosition{
                 image = left4;
             }
         }
-        g2.drawImage(image, x,y,gp.tileSize,gp.tileSize,null);
+        g2.drawImage(image, x,y,100,100,null);
     }
 }
