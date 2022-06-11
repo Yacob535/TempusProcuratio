@@ -20,9 +20,24 @@ public class Main {
         JFrame f = new JFrame("Due later? Do Later!");
         f.setResizable(false);
         f.setSize(950, 675);
+        /*
+        MazePanel mazePanel = new MazePanel(1);
+        f.add(mazePanel);
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);
+        mazePanel.startGameThread();
 
-        //buttonMiniGame opening = new buttonMiniGame(f,0);
+         */
+        /*
+        buttonMiniGame m = new buttonMiniGame(f,0);
+        f.add(m);
+
+         */
+        FlappyBird bird = new FlappyBird();
+        f.add(bird);
         //transitionToPanic opening = new transitionToPanic(f);
+        /*
         HousePanel mapPanel = new HousePanel(1);
         f.add(mapPanel);
         f.pack();
@@ -31,12 +46,24 @@ public class Main {
         mapPanel.startGameThread();
         int t = 0;
         int[] arr = new int[10];
+         */
+
+
         //ArrowKeys opening = new ArrowKeys(f,t,arr);
 
         //f.add(opening);
-
-
-
+        /*
+        titleScreen j = new titleScreen(f);
+        f.add(j);
+        */
+        /*
+        MowPanel mowPanel = new MowPanel();
+        f.add(mowPanel);
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);
+        mowPanel.startGameThread();
+        */
 
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);

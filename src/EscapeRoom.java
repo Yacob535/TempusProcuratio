@@ -7,9 +7,13 @@ import java.io.File;
 public class EscapeRoom extends characterPosition {
     HousePanel hp;
     KeyHandler keyH;
+    FlappyBird flappyBird;
+
+
+    JButton task1 = new plainButton(new ImageIcon("tv.png"),70,100,100,50);
 
     public EscapeRoom(HousePanel mp, KeyHandler keyH){
-
+        //this.hp.add(task1);
         this.hp = mp;
         this.keyH = keyH;
 
@@ -23,7 +27,7 @@ public class EscapeRoom extends characterPosition {
         direction = "right";
     }
     public void getPlayerImage(){
-
+        task1.setVisible(false);
         try{
             up1 = ImageIO.read(new File("up1.png"));
             up2 = ImageIO.read(new File("up2.png"));
@@ -98,17 +102,10 @@ public class EscapeRoom extends characterPosition {
                 {
                     x -= speed;
                 }
-                if(y > 625)
-                {
-                    y -= speed;
-                }
-                if(x > 750 && y < 500 || x > 750 && y < 540)
+
+                if(x > 750 && y > 500 || x > 750 && y < 540)
                 {
                     x -= speed;
-                }
-                if(y < 540 && x < 750 || y < 540 && x > 600)
-                {
-                    y += speed;
                 }
             }
             else if(this.hp.backgroundM.check == 2)
@@ -146,14 +143,16 @@ public class EscapeRoom extends characterPosition {
                     this.hp.backgroundM.check = 1;
                     this.hp.backgroundM.getBackgroundImage();
                 }
+                if((x < 160 && x > 100) && (y < 220  && y > 180)){
+                    //task1.setVisible(true);
+                    //flappyBird = new FlappyBird();
+                }
+                task1.setVisible(false);
             }
             else if(this.hp.backgroundM.check == 4)
             {
 
             }
-
-
-
 
                 spriteCounter++;
             if (spriteCounter > 5) {
